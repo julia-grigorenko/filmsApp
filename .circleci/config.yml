@@ -20,9 +20,10 @@ aliases:
       name: Install dependencies
       command: npm install
   - &save-cache
-    paths:
-      - node_modules
-    key: app-{{ checksum "package.json" }}
+    save_cache:
+      paths:
+        - node_modules
+      key: app-{{ checksum "package.json" }}
   - &install-aws-cli
     run:
       name: Installing AWS CLI
